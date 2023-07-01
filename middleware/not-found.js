@@ -1,6 +1,6 @@
 const notFound = (req, resp) => {
   return resp.json({
-    status: 404,
+    status: 400,
     msg: "Route doesnt exist",
   });
 };

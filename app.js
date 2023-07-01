@@ -3,6 +3,7 @@ const express = require("express");
 const notFound = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
 const connectDB = require("./Database/connect");
+const productRoute = require("./routes/products");
 const app = express();
 
 app.use(express.json());
@@ -16,6 +17,7 @@ app.get("/", (req, resp) => {
 
 app.use(notFound);
 app.use(errorHandlerMiddleware);
+app.use("api/v1/products", productRoute);
 
 const start = async () => {
   try {
