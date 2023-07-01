@@ -5,10 +5,15 @@ const errorHandlerMiddleware = require("./middleware/error-handler");
 const app = express();
 
 app.use(express.json());
-app.use(notFound);
-app.use(errorHandlerMiddleware);
 
 const PORT = process.env.PORT || 7000;
+
+app.get("/", (req, resp) => {
+  resp.send("Hello World");
+});
+
+app.use(notFound);
+app.use(errorHandlerMiddleware);
 
 const start = async () => {
   try {
