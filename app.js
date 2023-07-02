@@ -11,13 +11,10 @@ app.use(express.json());
 const PORT = process.env.PORT || 7000;
 const URL = process.env.MONGO_URI;
 
-app.get("/", (req, resp) => {
-  resp.send("Hello World");
-});
 
+app.use("/api/v1/products", productRoute);
 app.use(notFound);
 app.use(errorHandlerMiddleware);
-app.use("api/v1/products", productRoute);
 
 const start = async () => {
   try {
